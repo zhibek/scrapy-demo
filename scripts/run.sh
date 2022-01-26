@@ -4,4 +4,5 @@
 set -e
 
 echo "Running..."
-.venv/bin/scrapy runspider scrapers/demo.py
+cd project
+/app/.venv/bin/scrapy crawl demospider
