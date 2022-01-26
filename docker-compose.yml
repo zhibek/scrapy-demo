@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  app:
+    image: python:3.9
+    working_dir: /app
+    volumes:
+      - ${PWD}:/app
+    environment:
+      PYTHONHASHSEED: 0
+      DEBUG_ENABLED: "false"
+    env_file:
+      - .env
+    command: /bin/bash -x scripts/docker.sh
