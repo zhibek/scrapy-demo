@@ -1,6 +1,7 @@
 version: "3.9"
 
 services:
+
   app:
     image: python:3.9
     working_dir: /app
@@ -12,3 +13,44 @@ services:
     env_file:
       - .env
     command: /bin/bash -x scripts/docker.sh
+    depends_on:
+      - tor-1
+      - tor-2
+      - tor-3
+      - tor-4
+
+  tor-1:
+    container_name: tor-1
+    image: pickapp/tor-proxy
+    ports:
+      - 9991:8888
+    environment:
+      - IP_CHANGE_SECONDS=60
+    restart: always
+
+  tor-2:
+    container_name: tor-2
+    image: pickapp/tor-proxy
+    ports:
+      - 9992:8888
+    environment:
+      - IP_CHANGE_SECONDS=60
+    restart: always
+
+  tor-3:
+    container_name: tor-3
+    image: pickapp/tor-proxy
+    ports:
+      - 9993:8888
+    environment:
+      - IP_CHANGE_SECONDS=60
+    restart: always
+
+  tor-4:
+    container_name: tor-4
+    image: pickapp/tor-proxy
+    ports:
+      - 9994:8888
+    environment:
+      - IP_CHANGE_SECONDS=60
+    restart: always

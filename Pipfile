@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 scrapy = "2.5.1"
+scrapy-rotating-proxies = "0.6.2"
 
 [requires]
 python_version = "3.9"
